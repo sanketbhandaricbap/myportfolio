@@ -1,27 +1,22 @@
 # Sanket Bhandari Portfolio
 
-This is a static GitHub Pages-ready portfolio site.
+This folder is ready to upload directly to a public GitHub repository for GitHub Pages.
 
-## Files
+## Files to upload
 - `index.html`
 - `styles.css`
+- `script.js`
+- `profile-photo.jpg`
+- `Sanket_Bhandari_Sr_BA.docx`
 
-## Publish on GitHub Pages
+## GitHub Pages steps
+1. Create or open your public repository.
+2. Upload all files from this folder to the repo root.
+3. Go to **Settings > Pages**.
+4. Under **Build and deployment**, choose **Deploy from a branch**.
+5. Select `main` and `/ (root)`.
+6. Save.
 
-### Option 1: Personal site
-1. Create a GitHub repository named `YOUR_GITHUB_USERNAME.github.io`
-2. Upload `index.html` and `styles.css` to the repo root
-3. Wait a minute or two
-4. Your site will be live at `https://YOUR_GITHUB_USERNAME.github.io`
-
-### Option 2: Project site
-1. Create any public repository, for example `portfolio`
-2. Upload these files to the repo root
-3. In GitHub, go to `Settings` → `Pages`
-4. Under `Build and deployment`, choose `Deploy from a branch`
-5. Select `main` branch and `/ (root)` folder
-6. Save
-7. Your site will be live at `https://YOUR_GITHUB_USERNAME.github.io/portfolio/`
-
-## Custom domain
-You can later connect a custom domain in `Settings` → `Pages`.
+## Expected link
+- If repo name is `USERNAME.github.io` → `https://USERNAME.github.io/`
+- Otherwise → `https://USERNAME.github.io/REPO-NAME/`
