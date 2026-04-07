@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const filterButtons = Array.from(
-    document.querySelectorAll("#filters [data-filter]")
+    document.querySelectorAll("[data-filter]")
   );
 
   const experienceCards = Array.from(
@@ -51,11 +51,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  document.querySelectorAll("mark").forEach((mark) => {
-    mark.style.background = "transparent";
-    mark.style.color = "inherit";
-    mark.style.boxShadow = "none";
-    mark.style.padding = "0";
-    mark.style.borderRadius = "0";
+  function removeInjectedHighlights() {
+    document.querySelectorAll("mark, .highlight, [data-highlight]").forEach((el) => {
+      el.style.background = "transparent";
+      el.style.color = "inherit";
+      el.style.boxShadow = "none";
+      el.style.textShadow = "none";
+      el.style.padding = "0";
+      el.style.borderRadius = "0";
+    });
+  }
+
+  removeInjectedHighlights();
+
+  const observer = new MutationObserver(() => {
+    removeInjectedHighlights();
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true,
   });
 });
