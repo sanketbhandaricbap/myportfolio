@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
   const experienceCards = Array.from(document.querySelectorAll("[data-domain]"));
   const anchorLinks = Array.from(document.querySelectorAll('a[href^="#"]'));
-  const detailBlocks = Array.from(document.querySelectorAll("details"));
+  const detailsBlocks = Array.from(document.querySelectorAll("details"));
 
   function setActiveFilter(selectedFilter) {
     filterButtons.forEach((button) => {
@@ -44,20 +44,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  function updateExpandButton(detailsEl) {
-    const expandBtn = detailsEl.querySelector(".expand-btn");
-    if (!expandBtn) return;
+  function updateExpandButtons() {
+    detailsBlocks.forEach((detailsEl) => {
+      const expandBtn = detailsEl.querySelector(".expand-btn");
+      if (!expandBtn) return;
 
-    expandBtn.textContent = detailsEl.open ? "Hide details" : "View details";
+      expandBtn.textContent = detailsEl.open ? "Hide details" : "View details";
+    });
   }
 
-  detailBlocks.forEach((detailsEl) => {
-    updateExpandButton(detailsEl);
-
-    detailsEl.addEventListener("toggle", () => {
-      updateExpandButton(detailsEl);
-    });
+  detailsBlocks.forEach((detailsEl) => {
+    detailsEl.addEventListener("toggle", updateExpandButtons);
   });
+
+  updateExpandButtons();
 
   function removeInjectedHighlights() {
     document
